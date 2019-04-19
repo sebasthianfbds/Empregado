@@ -19,3 +19,5 @@
 # SNMP-Monitoramento
  #PDF
 http://www.ricardoluis.com/wp-content/uploads/2015/08/Artigo-DevMedia-Rest.pdf
+https://www.javahelps.com/2017/11/restful-crud-with-java-and-mysql-in.html
+
