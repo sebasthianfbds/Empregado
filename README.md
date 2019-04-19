@@ -17,4 +17,5 @@
 --Protocolo default mais usado na web , protocolo web.
 
 # SNMP-Monitoramento
-  
+ #PDF
+http://www.ricardoluis.com/wp-content/uploads/2015/08/Artigo-DevMedia-Rest.pdf
