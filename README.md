@@ -21,3 +21,11 @@
 http://www.ricardoluis.com/wp-content/uploads/2015/08/Artigo-DevMedia-Rest.pdf
 https://www.javahelps.com/2017/11/restful-crud-with-java-and-mysql-in.html
 
+
+
+COESÃO E ACOPLAMENTO
+
+DAO 
+https://www.devmedia.com.br/rest-tutorial/28912
+https://arquivo.devmedia.com.br/REVISTAS/easyjava/imagens/32/2/tab1.png
+
