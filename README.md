@@ -29,3 +29,8 @@ DAO
 https://www.devmedia.com.br/rest-tutorial/28912
 https://arquivo.devmedia.com.br/REVISTAS/easyjava/imagens/32/2/tab1.png
 
+https://pabcha.github.io/apps/crud-angular/articles -- 
+https://github.com/edgarMejia/Angular-CRUD -- 
+https://github.com/tarique93102/angular-crud-app -- 
+https://www.youtube.com/playlist?list=PLjC4UKOOcfDSu4lH0nLLr3sLhzuNZFHng --nodeJS
+https://github.com/CodAffection/Angular-7-CRUD-with-Web-API -- link com videos
