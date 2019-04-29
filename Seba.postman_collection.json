@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "b840a43d-c8ff-4fb7-8086-f2b6e6ad4c6b",
+		"name": "Seba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Read All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/professores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read One",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/professores/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professores",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\" : \"Nicolete\",\n\t\"matricula\" : 5\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/professores",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\" : \"Nic\",\n\t\"matricula\" : 5\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/professores/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professores",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/professores/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"professores",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
