@@ -5,11 +5,11 @@
  */
 package trabalhofinal;
 
-import trabalhofinal.resource.ProfessorResource;
+import trabalhofinal.resource.EmpregadoResource;
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
 import io.dropwizard.setup.Environment;
-import trabalhofinal.dao.ProfessorDAO;
+import trabalhofinal.dao.EmpregadoDAO;
 /**
  *
  * @author x036716
@@ -21,7 +21,7 @@ public class RestApp extends  Application<Configuration> {
 
     @Override
     public void run(Configuration configuration, Environment environment) {
-        environment.jersey().register(new ProfessorResource(new ProfessorDAO()));
+        environment.jersey().register(new EmpregadoResource(new EmpregadoDAO()));
     }
     
 }
