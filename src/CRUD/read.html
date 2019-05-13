@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>READ Empregados</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/site/sakura.css">
+</head>
+<body>
+
+<h1>Empregados</h1>
+<p style="font-weight:bold" id="contador"></p>
+<table>
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Cargo</th>
+<th>Salário</th>
+</tr>
+<tbody id="empregados">
+</tbody>
+</table>
+<script>
+const corpoTabela = document.querySelector('#empregados');
+const contadorParagraph = document.querySelector('#contador');
+function preencherTabela(empregados) {
+var linhasTabela = '';
+var n = empregados.length;
+for (var i = 0; i < n; i++) {
+var Empregado = empregados[i];
+linhasTabela += '<tr><td>' + Empregado.id + '</td>' +
+'<td>' + Empregado.nome + '</td>' +
+'<td>' + Empregado.cargo + '</td>' +
+'<td>' + Empregado.salario + '</td></tr>\n';
+}
+corpoTabela.innerHTML = linhasTabela;
+contadorParagraph.innerHTML = n + ' ' + (n==1?'Empregado':'empregados');
+}
+async function listarTodosEmpregados() {
+const URL = `http://localhost:8080/empregados`;
+try {
+fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse));
+} catch (e) {
+corpoTabela.innerHTML = e;
+}
+}
+listarTodosEmpregados();
+</script>
+</body>
+</html>
