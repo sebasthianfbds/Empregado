@@ -3,44 +3,55 @@
 <head>
 <title>DELETE empregado</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/site/sakura.css">
+<link rel="stylesheet" type="text/css" href="sakura.css">
 </head>
 <body>
-<p><a href="read.html">&lt; Voltar para página inicial</a></p>
-<h1>Deletar Empregado</h1>
-<table>
-<tr>
-</tr>
-<td>ID:</td>
-    <td id="idEmpregado"></td>
-<tr>
-<td>Nome:</td>
-    <td><input type="text" id="txtNome"></td>
-</tr>
-<tr>
-<td>Cargo:</td>
-    <td><input type="text" id="txtCargo"></td>
-</tr>
-<tr>
-    <td>Salário: </td>
-    <td><input type="text" id="txtSalario"></td>
-</tr>
-<tr><td></td><td><input type="button" onclick="apagarEmpregado()" value="Salvar"></td></tr>
-</table>
-<p style="font-weight:bold" id="mensagem"></p>
-<table>
-<tr>
+     <nav>
+            <div class="navbar">
+            
+                <a href="create.html">Create</a>
+                <a href="read.html">Read</a>
+                <a href="update.html">Update</a>
+                <a href="delete.html">Delete</a>
+                <a href="consulta.html">Consultas</a>
+            </div>
+        </nav>
 
-<th>ID</th>
-<th>Nome</th>
-<th>Cargo</th>
-<th>salario</th>
+        <h1>Deletar Empregado</h1>
+    <table>
+        <tr>
+        </tr>
+        <td>ID:</td>
+            <td id="idEmpregado"></td>
+        <tr>
+        <td>Nome:</td>
+            <td id="txtNome"></td>
+        </tr>
+        <tr>
+        <td>Cargo:</td>
+            <td id="txtCargo"></td>
+        </tr>
+        <tr>
+            <td>Salário: </td>
+            <td  id="txtSalario"></td>
+        </tr>
+        <tr><td></td><td><input type="button" onclick="apagarEmpregado()" value="Salvar"></td></tr>
+    </table>
+        <p style="font-weight:bold" id="mensagem"></p>
+    <table>
+        <tr>
 
-</tr>
-<tbody id="empregados">
-</tbody>
-</table>
-<script>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Cargo</th>
+        <th>salario</th>
+
+        </tr>
+        <tbody id="empregados">
+        </tbody>
+    </table>
+        
+    <script>
         const corpoTabela = document.querySelector('#empregados');
         const paragrafoMensagem = document.querySelector('#mensagem');
         const textoNome = document.querySelector('#txtNome');
@@ -48,19 +59,19 @@
         const textoSalario = document.querySelector('#txtSalario');
         const celulaID = document.querySelector('#idEmpregado');
         function inicializar() {
-        paragrafoMensagem.innerHTML = 'Selecione um empregado:'
-        celulaID.innerHTML = '';
-        textoNome.value = '';
-        textoCargo.value = '';
-        textoSalario.value ='';
-        listarTodosEmpregados();
+            paragrafoMensagem.innerHTML = 'Selecione um empregado:'
+            celulaID.innerHTML = '';
+            textoNome.innerHTML  = '';
+            textoCargo.innerHTML  = '';
+            textoSalario.innerHTML  ='';
+            listarTodosEmpregados();
         }
         function selecionarEmpregado(id, nome, cargo,salario) {
-        paragrafoMensagem.innerHTML = 'Altere os dados do empregado e pressione o botão Salvar.'
-        celulaID.innerHTML = id;
-        textoNome.value = nome;
-        textoCargo.value = cargo;
-        textoSalario.value = salario;
+            paragrafoMensagem.innerHTML = 'Altere os dados do empregado e pressione o botão Salvar.'
+            celulaID.innerHTML = id;
+            textoNome.innerHTML  = nome;
+            textoCargo.innerHTML  = cargo;
+            textoSalario.innerHTML  = salario;
         }
 
 
@@ -70,12 +81,12 @@
         const ID = celulaID.innerHTML;
         const URL = `http://localhost:8080/empregados/${ID}`;
         const deleteRequest = {
-        method:'DELETE'
+            method:'DELETE'
         };
         try {
-        fetch(URL, deleteRequest).then(resposta => inicializar());
+            fetch(URL, deleteRequest).then(resposta => inicializar());
         } catch (e) {
-        corpoTabela.innerHTML = e;
+            corpoTabela.innerHTML = e;
         }
         }
 
@@ -84,25 +95,25 @@
         var linhasTabela = '';
         var n = empregados.length;
         for (var i = 0; i < n; i++) {
-        var Empregado = empregados[i];
-        linhasTabela +=
-        `<tr><td><a href="javascript:void(0)" onclick="selecionarEmpregado('${Empregado.id}','${Empregado.nome}','${Empregado.cargo}','${Empregado.salario}')">`
-        + Empregado.id + '</a></td>' + 
-        '<td>' + Empregado.nome + '</td>' +
-        '<td>' + Empregado.cargo + '</td>' +
-        '<td>' + Empregado.salario + '</td></tr>\n';
-        }
+            var Empregado = empregados[i];
+            linhasTabela +=
+            `<tr><td><a href="javascript:void(0)" onclick="selecionarEmpregado('${Empregado.id}','${Empregado.nome}','${Empregado.cargo}','${Empregado.salario}')">`
+            + Empregado.id + '</a></td>' + 
+            '<td>' + Empregado.nome + '</td>' +
+            '<td>' + Empregado.cargo + '</td>' +
+            '<td>' + Empregado.salario + '</td></tr>\n';
+            }
         corpoTabela.innerHTML = linhasTabela;
         }
         async function listarTodosEmpregados() {
             const URL = `http://localhost:8080/empregados`;
         try {
-        fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse));
+            fetch(URL).then(resposta => resposta.json()).then(jsonResponse => preencherTabela(jsonResponse));
         } catch (e) {
-        corpoTabela.innerHTML = e;
+            corpoTabela.innerHTML = e;
         }
         }
         inicializar();
-</script>
+    </script>
 </body>
 </html>

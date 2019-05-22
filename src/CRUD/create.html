@@ -3,58 +3,78 @@
 <head>
 <title>CREATE Empregado</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/site/sakura.css">
+<link rel="stylesheet" type="text/css" href="sakura.css">
 </head>
 <body>
-<p><a href="read.html">&lt; Voltar para página inicial</a></p>
-<h1>Novo Empregado</h1>
-<table>
-<tr>
-<td>Nome:</td>
-<td><input type="text" id="txtNome"></td>
-</tr>
-<tr>
-<td>Cargo:</td>
-<td><input type="text" id="txtCargo"></td>
-</tr>
-<tr>
-<td>Salário:</td>
-<td><input type="text" id="txtSalario"></td>
+     <nav>
+            <div class="navbar">
+            
+                <a href="create.html">Create</a>
+                <a href="read.html">Read</a>
+                <a href="update.html">Update</a>
+                <a href="delete.html">Delete</a>
+                <a href="consulta.html">Consultas</a>
+            </div>
+        </nav>
 
-</tr>
+        <h1>Novo Empregado</h1>
+    <table>
+        <tr>
+            <td>Nome:</td>
+            
+            <td><input type="text" id="txtNome"></td>
+            
+        </tr>
+        <tr>
+            <td>Cargo:</td>
+            <td><input type="text" id="txtCargo"></td>
+        </tr>
+        <tr>
+            <td>Salário:</td>
+            <td><input type="text" id="txtSalario"></td>
 
-<tr><td></td><td><input type="button" onclick="criarEmpregado()" value="Criar"></td></tr>
-</table>
-<p style="font-weight:bold" id="mensagem"></p>
-<script>
-const textoNome = document.querySelector('#txtNome');
-const textoCargo = document.querySelector('#txtCargo');
-const textoSalario = document.querySelector('#txtSalario');
-const paragrafoMensagem = document.querySelector('#mensagem');
-function mostrarMensagem(empregadoCadastrado) {
-textoNome.value = '';
-textoCargo.value = '';
-textoSalario.value = '';
-paragrafoMensagem.value = 'Empregado criado com id ' + empregadoCadastrado.id;
-}
-async function criarEmpregado() {
-const URL = `http://localhost:8080/empregados`;
-const dadosEmpregado = {
-'nome': textoNome.value,
-'cargo': textoCargo.value,
-'salario':textoSalario.value
-};
-const postRequest = {
-method:'POST',
-body: JSON.stringify(dadosEmpregado),
-headers: { 'Content-type': 'application/json;charset=UTF-8' }
-};
-try {
-fetch(URL, postRequest).then(resposta => resposta.json()).then(jsonResponse => mostrarMensagem(jsonResponse));
-} catch (e) {
-corpoTabela.innerHTML = e;
-}
-}
-</script>
+        </tr>
+
+        <tr>
+            <td><input type="button" onclick="criarEmpregado()" value="Criar"></td>
+        </tr>
+        <tr>
+            
+            <td id="mensagem"></td>
+
+        </tr>
+        
+    </table>
+            <p id="mensagem"></p>
+    <script>
+        const textoNome = document.querySelector('#txtNome');
+        const textoCargo = document.querySelector('#txtCargo');
+        const textoSalario = document.querySelector('#txtSalario');
+        const paragrafoMensagem = document.querySelector('#mensagem');
+        
+        async function criarEmpregado() {
+        const URL = `http://localhost:8080/empregados`;
+        const dadosEmpregado = {
+            'nome': textoNome.value,
+            'cargo': textoCargo.value,
+            'salario':textoSalario.value
+        };
+        
+        function mostrarMensagem(empregadoCadastrado) {
+            paragrafoMensagem.innerHTML = 'Empregado criado';
+        }
+        
+        const postRequest = {
+            method:'POST',
+            body: JSON.stringify(dadosEmpregado),
+            headers: { 'Content-type': 'application/json;charset=UTF-8' }
+        };
+        try {
+            fetch(URL, postRequest).then(resposta => resposta.json()).then(jsonResponse => mostrarMensagem(jsonResponse));
+        } catch (e) {
+            corpoTabela.innerHTML = e;
+        }
+        }
+    </script>
 </body>
 </html>

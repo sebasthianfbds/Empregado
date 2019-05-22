@@ -4,48 +4,7 @@
 <title>consulta empregado</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="sakura.css">
-<script>
-        $('#idEmpregado').keyup(function() {
-            var nomeFiltro = $(this).val().toLowerCase();
-            console.log(nomeFiltro);
-            $('table tbody').find('tr').each(function() {
-                var conteudoCelula = $(this).find('td:first').text();
-                console.log(conteudoCelula);
-                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-                $(this).css('display', corresponde ? '' : 'none');
-            });
-        });
-        $('#txtNome').keyup(function() {
-            var nomeFiltro = $(this).val().toLowerCase();
-            console.log(nomeFiltro);
-            $('table tbody').find('tr').each(function() {
-                var conteudoCelula = $(this).find('td:first').text();
-                console.log(conteudoCelula);
-                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-                $(this).css('display', corresponde ? '' : 'none');
-            });
-        });
-        $('#txtCargo').keyup(function() {
-            var nomeFiltro = $(this).val().toLowerCase();
-            console.log(nomeFiltro);
-            $('table tbody').find('tr').each(function() {
-                var conteudoCelula = $(this).find('td:first').text();
-                console.log(conteudoCelula);
-                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-                $(this).css('display', corresponde ? '' : 'none');
-            });
-        });
-        $('#txtSalario').keyup(function() {
-            var nomeFiltro = $(this).val().toLowerCase();
-            console.log(nomeFiltro);
-            $('table tbody').find('tr').each(function() {
-                var conteudoCelula = $(this).find('td:first').text();
-                console.log(conteudoCelula);
-                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-                $(this).css('display', corresponde ? '' : 'none');
-            });
-        });
-</script>
+
 
 
 
@@ -68,6 +27,7 @@
     
        
     <table>
+        <thead>
         <tr>
 
         <th>ID<input id="idEmpregado"/></th>
@@ -76,6 +36,9 @@
         <th>salario<input id="txtSalario"/></th>
 
         </tr>
+
+        </thead>
+
         <tbody id="empregados">
         </tbody>
     </table>
@@ -116,9 +79,9 @@
             linhasTabela +=
             `<tr><td><a href="javascript:void(0)" onclick="selecionarEmpregado('${Empregado.id}','${Empregado.nome}','${Empregado.cargo}','${Empregado.salario}')">`
             + Empregado.id + '</a></td>' + 
-            '<td>' + Empregado.nome + '</td>' +
-            '<td>' + Empregado.cargo + '</td>' +
-            '<td>' + Empregado.salario + '</td></tr>\n';
+            '<td id="nome">' + Empregado.nome + '</td>' +
+            '<td id="cargo">' + Empregado.cargo + '</td>' +
+            '<td id="salario">' + Empregado.salario + '</td></tr>\n';
             }
         corpoTabela.innerHTML = linhasTabela;
         }
@@ -132,5 +95,60 @@
         }
         inicializar();
     </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+ 
+
+<script>
+       
+
+            $('#idEmpregado').keyup(function() {
+            var nomeFiltro = $(this).val().toLowerCase();
+            console.log(nomeFiltro);
+            $('table tbody').find('tr').each(function() {
+                var conteudoCelula = $(this).find('td:first').text();
+                console.log(conteudoCelula);
+                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+                $(this).css('display', corresponde ? '' : 'none');
+            });
+        });
+        $('#txtNome').keyup(function() {
+            var nomeFiltro = $(this).val().toLowerCase();
+            console.log(nomeFiltro);
+            $('table tbody').find('tr').each(function() {
+                var conteudoCelula = $(this).find('#nome').text();
+                console.log(conteudoCelula);
+                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+                $(this).css('display', corresponde ? '' : 'none');
+            });
+        });
+        $('#txtCargo').keyup(function() {
+            var nomeFiltro = $(this).val().toLowerCase();
+            console.log(nomeFiltro);
+            $('table tbody').find('tr').each(function() {
+                var conteudoCelula = $(this).find('#cargo').text();
+                console.log(conteudoCelula);
+                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+                $(this).css('display', corresponde ? '' : 'none');
+            });
+        });
+        $('#txtSalario').keyup(function() {
+            var nomeFiltro = $(this).val().toLowerCase();
+            console.log(nomeFiltro);
+            $('table tbody').find('tr').each(function() {
+                var conteudoCelula = $(this).find('#salario').text();
+                console.log(conteudoCelula);
+                var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+                $(this).css('display', corresponde ? '' : 'none');
+            });
+        });
+        
+
+</script>
+    
+    
+    
+    
+    
 </body>
 </html>
