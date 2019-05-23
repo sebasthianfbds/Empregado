@@ -31,7 +31,7 @@ public class EmpregadoDAO {
     public EmpregadoDAO() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/trabalhoFinal","root","4sus#R0cK5");
+            this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/trabalhoFinal","root","santos");
 //            Class.forName("org.apache.derby.jdbc.ClientDriver");
 //            out.println("Driver JDBC carregado!");
 //            
@@ -86,7 +86,7 @@ public class EmpregadoDAO {
  
     public Empregado create(Empregado novoEmpregado) {
         try {
-            this.stmC.setString(1, novoEmpregado.getNome());
+            this.stmC.setString(1,novoEmpregado.getNome());
             this.stmC.setString(2,novoEmpregado.getCargo());
             this.stmC.setDouble(3,novoEmpregado.getSalario());
             this.stmC.executeUpdate();

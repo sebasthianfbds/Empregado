@@ -92,7 +92,8 @@
             headers: { 'Content-type': 'application/json;charset=UTF-8' }
         };
         try {
-            fetch(URL, putRequest).then(resposta => resposta.json()).then(jsonResponse => inicializar());
+            fetch(URL, putRequest).then(resp => inicializar()); 
+            /*.then(resposta => resposta.json()).then(jsonResponse => inicializar());*/
         } catch (e) {
             corpoTabela.innerHTML = e;
         }

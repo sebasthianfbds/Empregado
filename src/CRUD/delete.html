@@ -35,7 +35,7 @@
             <td>Salário: </td>
             <td  id="txtSalario"></td>
         </tr>
-        <tr><td></td><td><input type="button" onclick="apagarEmpregado()" value="Salvar"></td></tr>
+        <tr><td></td><td><input type="button" onclick="apagarEmpregado()" value="Apagar"></td></tr>
     </table>
         <p style="font-weight:bold" id="mensagem"></p>
     <table>
@@ -67,7 +67,7 @@
             listarTodosEmpregados();
         }
         function selecionarEmpregado(id, nome, cargo,salario) {
-            paragrafoMensagem.innerHTML = 'Altere os dados do empregado e pressione o botão Salvar.'
+            paragrafoMensagem.innerHTML = 'Verifique o empregado e pressione o botão Apagar.'
             celulaID.innerHTML = id;
             textoNome.innerHTML  = nome;
             textoCargo.innerHTML  = cargo;
